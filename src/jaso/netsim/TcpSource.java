@@ -2,9 +2,9 @@ package jaso.netsim;
 
 public class TcpSource implements Sink, Handler {
 	
-	public final static int MSS_BYTES = 1500;
-	public final static long MIN_RTO_PICO =     200_000_000L; // 200 microseconds
-	public final static long INIT_RTO_PICO = 25_000_000_000L; // 25 millis 
+	public final static int  MSS_BYTES = 1500;
+	public final static long MIN_RTO_PICO =  Conversion.microsToPicos(200); // 200 microseconds
+	public final static long INIT_RTO_PICO = Conversion.millisToPicos(25);  // 25 millis 
 	
 	enum State {IDLE, SLOW_START, CONG_AVOID, FAST_RECOV, FINISH}
 
