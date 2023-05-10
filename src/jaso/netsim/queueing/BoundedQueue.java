@@ -43,7 +43,7 @@ public class BoundedQueue implements Queue {
     }
     
     
-    void register(Transmitter transmitter) {
+    public void register(Transmitter transmitter) {
         transmitters.add(transmitter);
     }
 

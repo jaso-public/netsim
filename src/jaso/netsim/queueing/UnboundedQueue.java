@@ -27,7 +27,7 @@ public class UnboundedQueue implements Queue {
 	}
 	
 	
-	void register(Transmitter transmitter) {
+	public void register(Transmitter transmitter) {
 		transmitters.add(transmitter);
 	}
 

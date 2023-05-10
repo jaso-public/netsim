@@ -24,7 +24,7 @@ public class Host implements Sink {
 		this.transmitter.setQueue(queue);
 	}
 
-	void connectCable(Connector connector) {
+	public void connectCable(Connector connector) {
 		transmitter.setConnector(connector);
 		connector.setSink(this, 0);
 	}

@@ -88,7 +88,7 @@ public class Switch implements Sink {
 		return true;
 	}
 	
-	boolean computeRoute() {
+	public boolean computeRoute() {
 		boolean changed = false;
 		
 		for(int i=0 ; i<transmitters.length ; i++) {
