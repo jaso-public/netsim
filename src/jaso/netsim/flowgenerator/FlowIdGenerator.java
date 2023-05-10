@@ -1,4 +1,4 @@
-package jaso.netsim;
+package jaso.netsim.flowgenerator;
 
 public class FlowIdGenerator {
 	

@@ -1,5 +1,7 @@
 package jaso.netsim;
 
+import jaso.netsim.flowgenerator.FlowGenerator;
+import jaso.netsim.flowgenerator.UniformFlowGenerator;
 import jaso.netsim.queueing.UnboundedQueue;
 
 public class SimulatorFatTree {
@@ -54,7 +56,7 @@ public class SimulatorFatTree {
 			tors[i] = new Switch("tor-"+i, numPorts, switchThinkTime, switchPicosPerByte);			
 		}
 
-		FlowGenerator flowGenerator = new FlowGenerator();
+		FlowGenerator flowGenerator = new UniformFlowGenerator();
 		
 		Host host1 = new Host(1, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 		flowGenerator.addHost(host1);

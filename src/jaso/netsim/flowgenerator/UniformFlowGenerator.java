@@ -1,22 +1,27 @@
-package jaso.netsim;
+package jaso.netsim.flowgenerator;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class FlowGenerator implements Handler {
+import jaso.netsim.Dispatcher;
+import jaso.netsim.Handler;
+import jaso.netsim.Host;
+
+public class UniformFlowGenerator implements Handler, FlowGenerator {
 
 	Random rng = new Random();
 	
 	ArrayList<Host> hosts = new ArrayList<>();
 	Set<Integer> hostIds = new HashSet<>();
 	
-	FlowGenerator() {
+	public UniformFlowGenerator() {
 		Dispatcher.dispatcher.register(0, this);	
 	}
 	
-	void addHost(Host host) {
+	@Override
+    public void addHost(Host host) {
 		if(hostIds.contains(host.hostId)) {
 			throw new RuntimeException("Already have host:"+host.hostId);
 		}

@@ -1,5 +1,7 @@
 package jaso.netsim;
 
+import jaso.netsim.flowgenerator.FlowGenerator;
+import jaso.netsim.flowgenerator.UniformFlowGenerator;
 import jaso.netsim.queueing.UnboundedQueue;
 
 public class SimulatorHostToHost {
@@ -13,7 +15,7 @@ public class SimulatorHostToHost {
 		
 		long hostPicosPerByte = Conversion.picoPerSecond / Conversion.bitsToBytes(hostBitRate);		
 
-		FlowGenerator flowGenerator = new FlowGenerator();
+		FlowGenerator flowGenerator = new UniformFlowGenerator();
 		
 		Host host1 = new Host(1, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 		flowGenerator.addHost(host1);
