@@ -1,6 +1,6 @@
 package jaso.netsim;
 
-import jaso.netsim.queueing.UnboundedQueue;
+import jaso.netsim.queueing.Queue;
 
 public class Transmitter implements Handler {
 	
@@ -11,7 +11,7 @@ public class Transmitter implements Handler {
 	enum State {Idle, Thinking, Sending} 
 	
 	State state = State.Idle;
-	UnboundedQueue queue = null;
+	Queue queue = null;
 	Connector connector = null;
 
 
@@ -22,7 +22,7 @@ public class Transmitter implements Handler {
 		state = State.Idle;
 	}	
 
-	public void setQueue(UnboundedQueue queue) {
+	public void setQueue(Queue queue) {
 		if(this.queue != null) throw new RuntimeException("queue already set");
 		this.queue = queue;
 		this.queue.register(this);

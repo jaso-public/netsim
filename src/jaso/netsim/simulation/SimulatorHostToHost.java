@@ -1,5 +1,9 @@
-package jaso.netsim;
+package jaso.netsim.simulation;
 
+import jaso.netsim.Cable;
+import jaso.netsim.Conversion;
+import jaso.netsim.Dispatcher;
+import jaso.netsim.Host;
 import jaso.netsim.flowgenerator.FlowGenerator;
 import jaso.netsim.flowgenerator.UniformFlowGenerator;
 import jaso.netsim.queueing.UnboundedQueue;

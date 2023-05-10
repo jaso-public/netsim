@@ -2,19 +2,21 @@ package jaso.netsim;
 
 import java.util.HashMap;
 
-import jaso.netsim.queueing.UnboundedQueue;
+import jaso.netsim.queueing.Queue;
 
 public class Host implements Sink {
 	
 	public final String name;
 	public final int hostId;
+	
+	
 	public final Transmitter transmitter;
-	public final UnboundedQueue queue;
+	public final Queue queue;
 
 	HashMap<Long, Sink> packetHandlers = new HashMap<>();
 	
 	
-	public Host(int hostId, long thinkTime, long picosPerByte, UnboundedQueue queue) {
+	public Host(int hostId, long thinkTime, long picosPerByte, Queue queue) {
 		this.hostId = hostId;
 		this.name = "host-" + hostId;
 		this.transmitter = new Transmitter("TX-"+name, thinkTime, picosPerByte);
