@@ -40,9 +40,7 @@ public class FlowGenerator implements Handler {
 		Host srcHost = hosts.get(src);
 		srcHost.startFlow(flowId, destId, 10_000);
 		
-		if(flowId<2) {
-		//Dispatcher.dispatcher.register(100, this);
-		}
+		Dispatcher.dispatcher.register(100, this);
 	}
 	
 

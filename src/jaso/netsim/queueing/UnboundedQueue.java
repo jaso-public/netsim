@@ -1,14 +1,17 @@
-package jaso.netsim;
+package jaso.netsim.queueing;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Queue {
+import jaso.netsim.Packet;
+import jaso.netsim.Transmitter;
+
+public class UnboundedQueue implements Queue {
 	
 	ArrayList<Transmitter> transmitters = new ArrayList<>();
 	LinkedList<Packet> queue = new LinkedList<>();
 	
-	void enqueue(Packet packet) {
+	public void enqueue(Packet packet) {
 		boolean wasEmpty = queue.isEmpty();
 		queue.add(packet);
 		if(wasEmpty) {
@@ -18,7 +21,7 @@ public class Queue {
 		}
 	}
 	
-	Packet dequeue() {
+	public Packet dequeue() {
 		if(queue.isEmpty()) return null;
 		return queue.poll();
 	}

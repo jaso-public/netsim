@@ -1,5 +1,7 @@
 package jaso.netsim;
 
+import jaso.netsim.queueing.UnboundedQueue;
+
 public class SimulatorFatTree {
 
 	public static void main(String[] args) {
@@ -54,9 +56,9 @@ public class SimulatorFatTree {
 
 		FlowGenerator flowGenerator = new FlowGenerator();
 		
-		Host host1 = new Host(1, hostThinkTime, hostPicosPerByte, new Queue());
+		Host host1 = new Host(1, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 		flowGenerator.addHost(host1);
-		Host host2 = new Host(2, hostThinkTime, hostPicosPerByte, new Queue());
+		Host host2 = new Host(2, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 		flowGenerator.addHost(host2);
 		
 		Cable cablex = new Cable(cableDelayPicos);
@@ -71,7 +73,7 @@ public class SimulatorFatTree {
 
 		// create the hosts and cable them up to their proper tor.
 		for(int hostId=0; hostId<numHosts; hostId++) {
-			hosts[hostId] = new Host(hostId, hostThinkTime, hostPicosPerByte, new Queue());
+			hosts[hostId] = new Host(hostId, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 			flowGenerator.addHost(hosts[hostId]);
 			
 			int tor = hostId / nOverTwo;

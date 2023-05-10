@@ -2,11 +2,13 @@ package jaso.netsim;
 
 import java.util.HashMap;
 
+import jaso.netsim.queueing.UnboundedQueue;
+
 public class Switch implements Sink {
 	
 	final String name;
 	Transmitter transmitters[] = null;
-	Queue queues[] = null;
+	UnboundedQueue queues[] = null;
 	
 	// maps a hostId to the port to use to send traffic to that host
 	HashMap<Integer,Route> routes = new HashMap<>();
@@ -23,9 +25,9 @@ public class Switch implements Sink {
 	// this is used to set up a simple per port outbound queue
 	public void queuePerPort() {
 		int numPorts = transmitters.length;
-		queues = new Queue[numPorts];
+		queues = new UnboundedQueue[numPorts];
 		for(int i=0 ; i<numPorts ; i++) {
-			queues[i] = new Queue();
+			queues[i] = new UnboundedQueue();
 			transmitters[i].setQueue(queues[i]);
 		}		
 	}

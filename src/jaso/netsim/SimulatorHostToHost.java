@@ -1,5 +1,7 @@
 package jaso.netsim;
 
+import jaso.netsim.queueing.UnboundedQueue;
+
 public class SimulatorHostToHost {
 
 	public static void main(String[] args) {
@@ -13,9 +15,9 @@ public class SimulatorHostToHost {
 
 		FlowGenerator flowGenerator = new FlowGenerator();
 		
-		Host host1 = new Host(1, hostThinkTime, hostPicosPerByte, new Queue());
+		Host host1 = new Host(1, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 		flowGenerator.addHost(host1);
-		Host host2 = new Host(2, hostThinkTime, hostPicosPerByte, new Queue());
+		Host host2 = new Host(2, hostThinkTime, hostPicosPerByte, new UnboundedQueue());
 		flowGenerator.addHost(host2);
 		
 		Cable cable = new Cable(cableDelayPicos);
