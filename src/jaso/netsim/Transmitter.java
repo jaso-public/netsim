@@ -20,6 +20,7 @@ public class Transmitter implements Handler {
 		this.thinkTime = thinkTime;
 		this.picosPerByte = picosPerByte;
 		state = State.Idle;
+		System.out.println("Transmitter:"+name+" thinkTime:"+thinkTime+" picosPerByte:"+picosPerByte);
 	}	
 
 	public void setQueue(Queue queue) {

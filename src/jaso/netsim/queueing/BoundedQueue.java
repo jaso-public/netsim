@@ -3,23 +3,26 @@ package jaso.netsim.queueing;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import jaso.netsim.Dispatcher;
 import jaso.netsim.Packet;
 import jaso.netsim.Transmitter;
 
 public class BoundedQueue implements Queue {
     
-    private final int maxQueueSize;
+    private final long maxQueueSize;
     private int currentQueueSize =0;
     
     private final ArrayList<Transmitter> transmitters = new ArrayList<>();
     private final LinkedList<Packet> queue = new LinkedList<>();
     
     
-    public BoundedQueue(int maxQueueSize) {
-        this.maxQueueSize = maxQueueSize;
+    public BoundedQueue(long hostQueueSize) {
+        this.maxQueueSize = hostQueueSize;
     }
 
     public void enqueue(Packet packet) {
+        System.out.println(Dispatcher.dispatcher.now + " queue onEvent()");
+        
         if(currentQueueSize + packet.size > maxQueueSize) {
             System.out.println("Drop:"+packet);
             return;
