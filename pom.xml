@@ -20,7 +20,6 @@
         <version>3.4.1</version>
         <configuration>
           <finalName>netsim</finalName>
-          <!-- other configuration options -->
         </configuration>
         <executions>
           <execution>
