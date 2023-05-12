@@ -56,15 +56,7 @@ public class Dispatcher {
  	}
 	 
 	
-    public void removeFirst() {
-        if (size < 2) {
-            if (size < 1) {
-                throw new RuntimeException("heap is empty");
-            }
-            size--;
-            return;
-        }
-        
+    public void removeFirst() {        
         size--;
         eventTimes[0] = eventTimes[size];
         handlers[0] = handlers[size];
@@ -107,10 +99,7 @@ public class Dispatcher {
 	public void processEvents(long stopTime) {
 		while( size > 0) {
 			now = eventTimes[0];
-			if(now > stopTime) {
-				System.out.println("stop time reached:"+stopTime+" now:"+now);
-				return;
-			}
+			if(now > stopTime) return;
 			handlers[0].onEvent(now);
 			removeFirst();
 		}
